@@ -13,6 +13,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\web4Lib\CalculatorLib\CalculatorLib.csproj" />
+    <ProjectReference Include="..\web4unit\CalculatorLib.Tests\CalculatorLib.Tests.csproj" />
   </ItemGroup>
 
 </Project>
