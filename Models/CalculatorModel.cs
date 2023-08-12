@@ -6,6 +6,7 @@ namespace CalculatorAA.Models
     public class CalculatorModel
     {
         [Required(ErrorMessage = "Expression is required.")]
+         [RegularExpression(@"^[0-9+\-*/\s]+$", ErrorMessage = "Invalid expression.")]
         public string Expression { get; set; }
         public double Result { get; set; }
 
