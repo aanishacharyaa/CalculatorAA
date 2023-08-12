@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk.Web">
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
 
   <PropertyGroup>
     <TargetFramework>net6.0</TargetFramework>
@@ -9,6 +9,10 @@
   <ItemGroup>
     <Folder Include="Views\NewFolder1\" />
     <Folder Include="Views\NewFolder\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\web4Lib\CalculatorLib\CalculatorLib.csproj" />
   </ItemGroup>
 
 </Project>

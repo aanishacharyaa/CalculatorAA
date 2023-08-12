@@ -1,5 +1,6 @@
 ﻿using CalculatorAA.Models;
 using Microsoft.AspNetCore.Mvc;
+using CalculatorLib; // Make sure this using statement is present
 
 namespace CalculatorAA.Controllers
 {
@@ -16,14 +17,19 @@ namespace CalculatorAA.Controllers
         {
             if (ModelState.IsValid)
             {
-                model.Calculate();
-                ViewBag.CalculatedResult = model.Result; // Store the calculated result in ViewBag
-
+                try
+                {
+                    double calculatedResult = ExpressionEvaluator.EvaluateExpression(model.Expression);
+                    model.Result = calculatedResult; // Update the Result property
+                    ViewBag.CalculatedResult = calculatedResult; // Store the calculated result in ViewBag
+                }
+                catch (ArgumentException ex)
+                {
+                    ModelState.AddModelError("Expression", ex.Message);
+                }
             }
 
-
-            return Json(new { result = ViewBag.CalculatedResult });
-
+            return View("Index", model); // Return the view with potential error messages
         }
     }
 }
