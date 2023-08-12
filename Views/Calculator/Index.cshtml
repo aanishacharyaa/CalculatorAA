@@ -66,6 +66,8 @@
         {
             <div>
                 @Html.TextBoxFor(m => m.Expression, new { @class = "calculator-input", @readonly = "readonly" })
+                @Html.ValidationMessageFor(m => m.Expression)
+
             </div>
             <div class="calculator-buttons">
                 <button type="button" onclick="appendToInput('1')">1</button>
