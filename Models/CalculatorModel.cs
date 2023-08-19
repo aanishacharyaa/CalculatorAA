@@ -20,4 +20,11 @@ namespace CalculatorAA.Models
             Result = double.Parse((string)row["expression"]);
         }
     }
+
+    public class PreviousCalculation
+    {
+        public int Id { get; set; }
+        public string Expression { get; set; }
+        public string Result { get; set; }
+    }
 }
